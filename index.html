@@ -150,6 +150,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-20190405" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/04/20190405/">FRP端口转发中frpc连接超时问题解决</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/04/20190405/" class="archive-article-date">
+  	<time datetime="2019-04-04T15:47:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>之前一直有用云服务器做一些端口转发的工作，安装的软件是[frp](https://github.com/fatedier/frp/releases) 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。
+</code></pre><p>但是今天测试的时候出了点问题，我在云服务器中开启frp server之后，开启frpc一直没有响应，过了一段时间后显示连接超时，平时连接基本都没有延迟，唯独这次出了问题。<br><img src="/2019/04/04/20190405/1.png" alt><br></p>
+        
+          <a class="article-more-a" href="/2019/04/04/20190405/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/04/20190405/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-20190404" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,64 +249,9 @@
       
         <p>近日企业春招笔试多如牛毛，笔者手上几个项目进度迟缓，想给自己找份暑期实习，于是开始刷剑指offer系列的题准备应对笔试。笔者学习数据结构时惯用的语言是C++，技术面试也喜欢问C++STL的使用，于是决定使用C++做完。</p>
 <p>  初步做的题尚未达到只有开IDE逐步运行调试才能写出来的难度，每做一道题不过十几分钟，每次都要开IDE建一个工程未免太过笨重，在一个文件里调试也不方便复习，试图尝试用之前写Python时下的Sublime Text3来进行调试。在此分享一点经验，望看到这篇文章的萌新少走弯路。</p>
-<h3 id="需要的工具："><a href="#需要的工具：" class="headerlink" title="需要的工具："></a>需要的工具：</h3><p>1.<strong>Sublime Text 3</strong> 下载链接：<a href="http://www.sublimetext.com/3" target="_blank" rel="noopener">http://www.sublimetext.com/3</a> 一款非常轻便好用的文本编辑器，支持Python\Java\C++等多种语言编辑调试</p>
-<p>2.<strong>MinGW</strong> 下载链接：<a href="https://osdn.net/projects/mingw/releases/" target="_blank" rel="noopener">https://osdn.net/projects/mingw/releases/</a> 由于Sublime是不自带C++编译器的，需要另外下一个g++，我这里选用的是MinGW里带的，如果已经下载CodeBlocks而且配置了环境变量的话也可以直接用里面的g++，不需要另外再下载。拖到页面下方下载这个<strong>mingw-get-setup.exe</strong>即可</p>
-<p><img src="/2019/04/04/20190404/image-1.png" alt></p>
-<p>下载好后点开来是这样的：</p>
-<p><img src="/2019/04/04/20190404/image-2.png" alt></p>
-<p>直接点Install然后配置一下路径，continue等安装好就行了。我第一次做这一步的时候报了两次错，没搞清楚原因，重新下载了一下就能用了</p>
-<p><img src="/2019/04/04/20190404/image-3.png" alt></p>
-<p>再continue会显示这个界面，由于我这台电脑之前已经通过MinGW安装过了g++，所以这里显示的是灰的，第一次配置的话，右键<strong>mingw32-gcc-g++-bin</strong>项，然后点Make for installation（应该也是唯一的选项），然后点左上角的Installation，选择Apply Changes，然后喝杯茶等一会（有梯子的同学可以不用等）</p>
-<p><img src="/2019/04/04/20190404/image-4.png" alt></p>
-<p>下一步就是配置环境变量了。此电脑（计算机）右键-> 高级系统设置-&gt;环境变量-&gt;系统变量-&gt;Path双击，在后面加上刚刚下载MinGW的bin文件夹路径。有些同学打开不是我这样的，就在一长串字符的后面加上<code>；E:\\MinGW\\bin</code>(分号加你自己的路径)。我之前用Latex的时候因为这个程序的bug把我环境变量清空了= =，大家如果要用Latex写论文的话一定要先备份环境变量，不然恢复起来很麻烦</p>
-<p><img src="/2019/04/04/20190404/image-5.png" alt></p>
-<p>配置完环境变量一定要记得把确定都点了啊，这样才能保证生效。在命令行中输入<strong>g++ -v</strong> 测试，如果有如下显示那就证明环境变量配置成功了</p>
-<p><img src="/2019/04/04/20190404/image-6.png" alt></p>
-<p>现在就可以对Sublime Text进行操作了。打开之后我们点击Tools-&gt;Build System-&gt;New Build System，然后把下面的代码复制进去，比如说保存文件名为cpp.sublime-build。<br>对代码含义感兴趣的同学可以看我后面给的两篇参考文章，以及这个链接：<a href="http://sublimetext.info/docs/en/reference/build_systems.html" target="_blank" rel="noopener">http://sublimetext.info/docs/en/reference/build_systems.html</a></p>
-<pre><code>{ 
-    &quot;cmd&quot;: [&quot;g++&quot;, &quot;${file}&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\${file_base_name}&quot;, &quot;&amp;&quot;, &quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\${file_base_name} &amp; echo. &amp; pause&quot;],
-    &quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;, &quot;working_dir&quot;: &quot;${file_path}&quot;,
-    &quot;selector&quot;: &quot;source.c, source.c++&quot;, &quot;shell&quot;: true,
-    &quot;encoding&quot;:&quot;cp936&quot;, 
-
-    &quot;variants&quot;:
-    [
-        {
-            &quot;name&quot; : &quot;Build Only&quot;,
-            &quot;cmd&quot;:[&quot;g++&quot;, &quot;${file}&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\${file_base_name}&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Run Only&quot;,
-            &quot;cmd&quot; : [&quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\${file_base_name} &amp; echo. &amp; pause&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Pipe Build and Run&quot;,
-            &quot;cmd&quot;:[&quot;g++&quot;, &quot;${file}&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\${file_base_name}&quot;,&quot;&amp;&quot;,&quot;${file_path}\\\\${file_base_name}&quot;, &quot;&lt;&quot;,&quot;${file_path}\\\\in&quot;,&quot;&gt;&quot;,&quot;${file_path}\\\\out&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Pipe Run Only&quot;,
-            &quot;cmd&quot; : [&quot;${file_base_name}&quot;, &quot;&lt;&quot;,&quot;in&quot;,&quot;&gt;&quot;,&quot;out&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Project Build &amp; Run&quot;,
-            &quot;cmd&quot; : [&quot;g++&quot;, &quot;${file_path}\\\\*.cpp&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\project&quot;, &quot;&amp;&quot;, &quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\project &amp; echo. &amp; pause&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Project Build Only&quot;,
-            &quot;cmd&quot; : [&quot;g++&quot;, &quot;${file_path}\\\\*.cpp&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\project&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Project Run Only&quot;,
-            &quot;cmd&quot; : [&quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\project &amp; echo. &amp; pause&quot;]
-        }
-    ]
-</code></pre><p>然后就可以新建一个cpp文件测试一下啦。在Tools中选择Build System为刚刚设定的cpp，然后Tools-&gt;Build(快捷键Ctrl+B)，会弹出下列窗口让你选择；如果之前已经选择需要改编译需求的话，就点Build with(快捷键Ctrl+Shift+B)</p>
-<p><img src="/2019/04/04/20190404/image-7.png" alt></p>
-<p>这里我们一般使用的是Project Build&amp;Run，即编译执行，如果对其他选项的含义感兴趣可以看参考文章里的第一篇。执行Build后，可以看见之前cpp文件的路径下生成了一个Project.exe文件，并且可以运行起来了，编译速度还挺快~</p>
-<p><img src="/2019/04/04/20190404/image-8.png" alt></p>
-<p>到这里Sublime Text3的C++编译环境就完成了，可以开始刷题了兄弟萌</p>
-<p>参考文章：<br><a href="https://blog.csdn.net/a19990412/article/details/82658981" target="_blank" rel="noopener">https://blog.csdn.net/a19990412/article/details/82658981</a><br><a href="https://www.cnblogs.com/jacen789/p/7801977.html" target="_blank" rel="noopener">https://www.cnblogs.com/jacen789/p/7801977.html</a></p>
-
+        
+          <a class="article-more-a" href="/2019/04/04/20190404/#more">more >></a>
+        
       
 
       
@@ -237,6 +259,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -362,6 +395,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -421,6 +462,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           
             <li class="search-li">
               <a href="http://music.163.com/radio/?id=527025621&userid=344605063" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>听会儿我唱的歌吧</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.nowcoder.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>牛客网</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.freebuf.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Freebuf</a>
             </li>
           
         </ul>
@@ -505,5 +554,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?bd2294fafea3389ee458f1d9be5a2157"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-miku"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
