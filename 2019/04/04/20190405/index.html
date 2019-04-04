@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://www.dollars.wang">
   <title>FRP端口转发中frpc连接超时问题解决 | 炭烧酸奶不是碳酸饮料</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前一直有用云服务器做一些端口转发的工作，安装的软件是[frp](https://github.com/fatedier/frp/releases) 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。 但是今天测试的时候出了点问题，我在云服务器中开启frp">
+  <meta name="description" content="之前一直有用云服务器做一些端口转发的工作，安装的软件是frp 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。但是今天测试的时候出了点问题，我在云服务器中开启frp server之后，开启frpc一直没有响应，过了一段时间后显示连接超时，平时连接基本都没">
 <meta name="keywords" content="安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FRP端口转发中frpc连接超时问题解决">
 <meta property="og:url" content="http://www.dollars.wang/2019/04/04/20190405/index.html">
 <meta property="og:site_name" content="炭烧酸奶不是碳酸饮料">
-<meta property="og:description" content="之前一直有用云服务器做一些端口转发的工作，安装的软件是[frp](https://github.com/fatedier/frp/releases) 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。 但是今天测试的时候出了点问题，我在云服务器中开启frp">
+<meta property="og:description" content="之前一直有用云服务器做一些端口转发的工作，安装的软件是frp 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。但是今天测试的时候出了点问题，我在云服务器中开启frp server之后，开启frpc一直没有响应，过了一段时间后显示连接超时，平时连接基本都没">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190405/1.png">
 <meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190405/2.png">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190405/4.jpg">
 <meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190405/5.png">
 <meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190405/6.png">
-<meta property="og:updated_time" content="2019-04-04T17:01:47.280Z">
+<meta property="og:updated_time" content="2019-04-04T17:03:24.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FRP端口转发中frpc连接超时问题解决">
-<meta name="twitter:description" content="之前一直有用云服务器做一些端口转发的工作，安装的软件是[frp](https://github.com/fatedier/frp/releases) 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。 但是今天测试的时候出了点问题，我在云服务器中开启frp">
+<meta name="twitter:description" content="之前一直有用云服务器做一些端口转发的工作，安装的软件是frp 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。但是今天测试的时候出了点问题，我在云服务器中开启frp server之后，开启frpc一直没有响应，过了一段时间后显示连接超时，平时连接基本都没">
 <meta name="twitter:image" content="http://www.dollars.wang/2019/04/04/20190405/1.png">
   
     <link rel="alternative" href="/atom.xml" title="炭烧酸奶不是碳酸饮料" type="application/atom+xml">
@@ -180,8 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>之前一直有用云服务器做一些端口转发的工作，安装的软件是[frp](https://github.com/fatedier/frp/releases) 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。
-</code></pre><p>但是今天测试的时候出了点问题，我在云服务器中开启frp server之后，开启frpc一直没有响应，过了一段时间后显示连接超时，平时连接基本都没有延迟，唯独这次出了问题。<br><img src="/2019/04/04/20190405/1.png" alt><br><a id="more"></a><br>    这是服务器端的状态，开启了7000端口监听用于转发，7500端口是用来访问web监控界面的；而客户端的完全没反应，因为我已经修好了我就不去再弄坏一次截图了= =<br>首先我想查验一下我的端口是否已经开启了，于是另外开了个终端输入命令<code>lsof -i:7000</code>和<code>lsof -i:7500</code><br><img src="/2019/04/04/20190405/2.png" alt><br>图中显示两个端口都已经是开放的状态，是不是frpc终端出了问题？我的frpc是在Linux上虚拟机上运行的，网络有时候不是很稳定，于是我用网络更加稳定的Windows实体机中自带的<strong>telnet</strong>工具测试该端口是否已经开放：<br>打开控制面板-&gt;程序-&gt;启用或关闭Windows功能-&gt;找到Telnet客户端然后勾选上就好啦，可以在cmd命令行中直接使用了。<a href="https://jingyan.baidu.com/article/ae97a646b22fb6bbfd461d19.html" target="_blank" rel="noopener">参考教程</a>  输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">telnet ip port			</span><br><span class="line">//ip是服务器的ip，port是我们需要连接的端口号7000和7500</span><br></pre></td></tr></table></figure></p>
+        <p>之前一直有用云服务器做一些端口转发的工作，安装的软件是<a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">frp</a> 觉得还挺好用的。做的事大致就是把我做的安装在其他终端上的通(hou)信(men)程序，通过端口转发实现内网穿透，就可以和我在开启frp客户端的内网机器进行直接通信，渗透范围就不仅限于在内网下了。<br>但是今天测试的时候出了点问题，我在云服务器中开启frp server之后，开启frpc一直没有响应，过了一段时间后显示连接超时，平时连接基本都没有延迟，唯独这次出了问题。<br><img src="/2019/04/04/20190405/1.png" alt><br><a id="more"></a><br>    这是服务器端的状态，开启了7000端口监听用于转发，7500端口是用来访问web监控界面的；而客户端的完全没反应，因为我已经修好了我就不去再弄坏一次截图了= =<br>首先我想查验一下我的端口是否已经开启了，于是另外开了个终端输入命令<code>lsof -i:7000</code>和<code>lsof -i:7500</code><br><img src="/2019/04/04/20190405/2.png" alt><br>图中显示两个端口都已经是开放的状态，是不是frpc终端出了问题？我的frpc是在Linux上虚拟机上运行的，网络有时候不是很稳定，于是我用网络更加稳定的Windows实体机中自带的<strong>telnet</strong>工具测试该端口是否已经开放：<br>打开控制面板-&gt;程序-&gt;启用或关闭Windows功能-&gt;找到Telnet客户端然后勾选上就好啦，可以在cmd命令行中直接使用了。<a href="https://jingyan.baidu.com/article/ae97a646b22fb6bbfd461d19.html" target="_blank" rel="noopener">参考教程</a>  输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">telnet ip port			</span><br><span class="line">//ip是服务器的ip，port是我们需要连接的端口号7000和7500</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2019/04/04/20190405/3.png" alt></p>
 <p>发现连接不上这两个端口，可以初步排除是网络状况和系统的问题了。我不死心，又用更强大的nmap扫描了一遍，发现这两个端口仍然是未开放的。那到底是什么导致的？昨天明明还好好的<br>只见我不慌不忙盘腿而坐，两食指绕天灵盖两侧快速转圈，突然想起来昨天好像在这台服务器上因为尝试配置个人网站装了一堆软件，包括iptables。想起来以前配置分布式文件系统的时候，需要关闭iptables才能让程序正常运行，会不会是iptables因为安全关系对外屏蔽了某些端口，才会让这些开放的端口对外不可见？</p>
 <p><img src="/2019/04/04/20190405/4.jpg" alt></p>
@@ -438,11 +437,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
             
             <div class="clearfix"></div>
