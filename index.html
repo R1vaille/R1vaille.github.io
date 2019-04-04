@@ -170,22 +170,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>近日企业春招笔试多如牛毛，笔者手上几个项目进度迟缓，想给自己找份暑期实习，于是开始刷剑指offer系列的题准备应对笔试。笔者学习数据结构时惯用的语言是C++，技术面试也喜欢问C++TL的使用，于是决定使用C++做完。</p>
+        <p>近日企业春招笔试多如牛毛，笔者手上几个项目进度迟缓，想给自己找份暑期实习，于是开始刷剑指offer系列的题准备应对笔试。笔者学习数据结构时惯用的语言是C++，技术面试也喜欢问C++STL的使用，于是决定使用C++做完。</p>
 <p>  初步做的题尚未达到只有开IDE逐步运行调试才能写出来的难度，每做一道题不过十几分钟，每次都要开IDE建一个工程未免太过笨重，在一个文件里调试也不方便复习，试图尝试用之前写Python时下的Sublime Text3来进行调试。在此分享一点经验，望看到这篇文章的萌新少走弯路。</p>
-<h3 id="需要的工具："><a href="#需要的工具：" class="headerlink" title="需要的工具："></a>需要的工具：</h3><p>①<strong>Sublime Text 3</strong> 下载链接：<a href="http://www.sublimetext.com/3" target="_blank" rel="noopener">http://www.sublimetext.com/3</a> 一款非常轻便好用的文本编辑器，支持Python\Java\C++等多种语言编辑调试</p>
-<p>②<strong>MinGW</strong> 下载链接：<a href="https://osdn.net/projects/mingw/releases/" target="_blank" rel="noopener">https://osdn.net/projects/mingw/releases/</a> 由于Sublime是不自带C++编译器的，需要另外下一个g++，我这里选用的是MinGW里带的，如果已经下载CodeBlocks而且配置了环境变量的话也可以直接用里面的g++，不需要另外再下载。拖到页面下方下载这个<strong>mingw-get-setup.exe</strong>即可</p>
+<h3 id="需要的工具："><a href="#需要的工具：" class="headerlink" title="需要的工具："></a>需要的工具：</h3><p>1.<strong>Sublime Text 3</strong> 下载链接：<a href="http://www.sublimetext.com/3" target="_blank" rel="noopener">http://www.sublimetext.com/3</a> 一款非常轻便好用的文本编辑器，支持Python\Java\C++等多种语言编辑调试</p>
+<p>2.<strong>MinGW</strong> 下载链接：<a href="https://osdn.net/projects/mingw/releases/" target="_blank" rel="noopener">https://osdn.net/projects/mingw/releases/</a> 由于Sublime是不自带C++编译器的，需要另外下一个g++，我这里选用的是MinGW里带的，如果已经下载CodeBlocks而且配置了环境变量的话也可以直接用里面的g++，不需要另外再下载。拖到页面下方下载这个<strong>mingw-get-setup.exe</strong>即可</p>
 <p><img src="/2019/04/04/20190404/image-1.png" alt></p>
 <p>下载好后点开来是这样的：</p>
 <p><img src="/2019/04/04/20190404/image-2.png" alt></p>
 <p>直接点Install然后配置一下路径，continue等安装好就行了。我第一次做这一步的时候报了两次错，没搞清楚原因，重新下载了一下就能用了</p>
 <p><img src="/2019/04/04/20190404/image-3.png" alt></p>
 <p>再continue会显示这个界面，由于我这台电脑之前已经通过MinGW安装过了g++，所以这里显示的是灰的，第一次配置的话，右键<strong>mingw32-gcc-g++-bin</strong>项，然后点Make for installation（应该也是唯一的选项），然后点左上角的Installation，选择Apply Changes，然后喝杯茶等一会（有梯子的同学可以不用等）</p>
-<p><img src="/2019/04/04/20190404/image.png" alt></p>
-<p>下一步就是配置环境变量了。此电脑（计算机）右键-> 高级系统设置-&gt;环境变量-&gt;系统变量-&gt;Path双击，在后面加上刚刚下载MinGW的bin文件夹路径。有些同学打开不是我这样的，就在一长串字符的后面加上<strong>；E:\MinGW\bin</strong>(分号加你自己的路径)。我之前用Latex的时候因为这个程序的bug把我环境变量清空了= =，大家如果要用Latex写论文的话一定要先备份环境变量，不然恢复起来很麻烦</p>
+<p><img src="/2019/04/04/20190404/image-4.png" alt></p>
+<p>下一步就是配置环境变量了。此电脑（计算机）右键-> 高级系统设置-&gt;环境变量-&gt;系统变量-&gt;Path双击，在后面加上刚刚下载MinGW的bin文件夹路径。有些同学打开不是我这样的，就在一长串字符的后面加上<code>；E:\\MinGW\\bin</code>(分号加你自己的路径)。我之前用Latex的时候因为这个程序的bug把我环境变量清空了= =，大家如果要用Latex写论文的话一定要先备份环境变量，不然恢复起来很麻烦</p>
 <p><img src="/2019/04/04/20190404/image-5.png" alt></p>
 <p>配置完环境变量一定要记得把确定都点了啊，这样才能保证生效。在命令行中输入<strong>g++ -v</strong> 测试，如果有如下显示那就证明环境变量配置成功了</p>
 <p><img src="/2019/04/04/20190404/image-6.png" alt></p>
-<p>现在就可以对Sublime Text进行操作了。打开之后我们点击Tools-&gt;Build System-&gt;New Build System，然后把下面的代码复制进去，比如说保存文件名为cpp.sublime-build。这里因为<br>对代码含义感兴趣的同学可以看我后面给的两篇参考文章，以及这个链接：<a href="http://sublimetext.info/docs/en/reference/build_systems.html" target="_blank" rel="noopener">http://sublimetext.info/docs/en/reference/build_systems.html</a></p>
+<p>现在就可以对Sublime Text进行操作了。打开之后我们点击Tools-&gt;Build System-&gt;New Build System，然后把下面的代码复制进去，比如说保存文件名为cpp.sublime-build。<br>对代码含义感兴趣的同学可以看我后面给的两篇参考文章，以及这个链接：<a href="http://sublimetext.info/docs/en/reference/build_systems.html" target="_blank" rel="noopener">http://sublimetext.info/docs/en/reference/build_systems.html</a></p>
 <pre><code>{ 
     &quot;cmd&quot;: [&quot;g++&quot;, &quot;${file}&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\${file_base_name}&quot;, &quot;&amp;&quot;, &quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\${file_base_name} &amp; echo. &amp; pause&quot;],
     &quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;, &quot;working_dir&quot;: &quot;${file_path}&quot;,
