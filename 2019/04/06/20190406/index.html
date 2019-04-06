@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/7.png">
 <meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/8.png">
 <meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/9.png">
-<meta property="og:updated_time" content="2019-04-06T15:33:40.346Z">
+<meta property="og:updated_time" content="2019-04-06T15:39:32.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows命令行方式访问QQ邮箱smtp服务器">
 <meta name="twitter:description" content="SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。本文中将分享一些使用Telnet在命令行中对QQ邮箱的smtp服务器进行访问，执行登录、">
@@ -189,7 +189,7 @@
 <h3 id="开启Telnet："><a href="#开启Telnet：" class="headerlink" title="开启Telnet："></a>开启Telnet：</h3><p>控制面板一程序一打开或关闭windows功能一勾选“telnet服务器”和“telnet客户端”确定并安装即可。在CMD中输入Telnet可以验证是否配置成功<br><img src="/2019/04/06/20190406/2.png" alt></p>
 <p>这只是准备工作的第一步。在配置好Telnet服务之后，我们还需要开启QQ邮箱的相关设置。登录邮箱后，我们通过设置-&gt;账户-&gt;POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务中，开启POP3/SMTP服务，或者IMAP/SMTP服务，这样就可以通过SMTP协议对邮箱进行访问和操作了。<br>在QQ邮箱的<a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=371" target="_blank" rel="noopener">这篇官方文档</a>中，还提供了一些支持POP3服务邮箱客户端的设置方法。<br>至于POP3和IMAP的区别，<a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=331" target="_blank" rel="noopener">另一篇官方文档</a>中也有详细的介绍。简要地说，就是POP3是单向的，对于邮箱的操作只在客户端本地有效，不会影响到服务器；而IMAP是双向的，用户进行的邮件移动、标记等操作都会反馈到服务器上。<br>POP3和IMAP都是用于邮件获取的协议，我们关心的SMTP协议是用于邮件发送的协议，两者搭配使用实现文件的收发。<br><img src="/2019/04/06/20190406/3.png" alt><br>服务开启的时候会生成一串授权码，虽然窗口上文字说不用记，但最好还是要记一下，因为每次生成授权码都要发短信，会有点麻烦。</p>
 <p>接下来我们就正式开始访问QQ邮箱的smtp服务器了。启动CMD，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Telnet smtp.qq.com 587</span><br></pre></td></tr></table></figure></p>
-<p>这里的<strong>smtp.qq.com</strong>是QQ邮箱的smtp服务器地址，587是其开放的端口号（163邮箱则是smtp.163.com，端口号25）。在上述的第二篇官方文档中有说明QQ邮箱smtp服务器的端口号有465和587，但我用465测试的时候命令行窗口卡死了，只有587能测试成功。<br>成功连接后，我们输入下列代码来给smtp服务器打个招呼：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helo smtp</span><br></pre></td></tr></table></figure></p>
+<p>这里的<strong>smtp.qq.com</strong>是QQ邮箱的smtp服务器地址，587是其开放的端口号（163邮箱则是smtp.163.com，端口号25）。在上述的第二篇官方文档中有说明QQ邮箱smtp服务器的端口号有465和587，但我用465测试的时候命令行窗口是全黑的，不太方便操作，所以只用587测试了。<br>成功连接后，我们输入下列代码来给smtp服务器打个招呼：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helo smtp</span><br></pre></td></tr></table></figure></p>
 <p>服务器正常情况下会返回输出<strong>250 smtp.qq.com</strong><br>注意，在连接上smtp服务器后，如果一段时间没有动作，服务器会自动断开和当前客户端的连接；而且在连接成功后的界面中尽量不要输错指令，因为退格在telnet的界面中是无效的，只能把光标前移，再输入会覆盖掉之前输入的文字，也不代表你提交的命令就是当前显示在屏幕上的那条；如果输入了错误的命令，也可能主动断开和服务器的连接。<br>然后我们请求登录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auth login</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2019/04/06/20190406/4.png" alt></p>
 <p>可以看见服务器给我们反馈了一条消息：<strong>Must issue a STARTTLS command first</strong>，要求我们先输入一条命令启动TLS。<br>简单查阅了一下TLS协议相关的资料，TLS(Transport Layer Security)协议，由SSL(Secure Sockets Layer)协议发展而来，是一种安全协议，主要作用是加密。如果在和smtp服务器通信的过程中，我们输入的账号和密码信息如果未加密直接进行发送的话，会产生较大的账户安全隐患。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STARTTLS</span><br></pre></td></tr></table></figure></p>
@@ -450,11 +450,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
