@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/7.png">
 <meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/8.png">
 <meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/9.png">
-<meta property="og:updated_time" content="2019-04-06T14:26:25.343Z">
+<meta property="og:updated_time" content="2019-04-06T15:33:40.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows命令行方式访问QQ邮箱smtp服务器">
 <meta name="twitter:description" content="SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。本文中将分享一些使用Telnet在命令行中对QQ邮箱的smtp服务器进行访问，执行登录、">
@@ -183,7 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>SMTP</strong>（Simple Mail Transfer Protocol）即简单邮件传输协议,是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件<br>时找到下一个目的地。<br>本文中将分享一些使用Telnet在命令行中对QQ邮箱的smtp服务器进行访问，执行登录、发送邮件等操作的经验。<br><img src="/2019/04/06/20190406/1.jpg" alt><br><a id="more"></a><br>在上一篇文章中，我使用了Telnet工具来检测服务器端口是否开放，在这篇文章中，我想先更详细地介绍一下我们使用的Telnet服务：</p>
+        <p><strong>SMTP</strong>（Simple Mail Transfer Protocol）即简单邮件传输协议,是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。<br>本文中将分享一些使用Telnet在命令行中对QQ邮箱的smtp服务器进行访问，执行登录、发送邮件等操作的经验。<br><img src="/2019/04/06/20190406/1.jpg" alt><br><a id="more"></a><br>在上一篇文章中，我使用了Telnet工具来检测服务器端口是否开放，在这篇文章中，我想先更详细地介绍一下我们使用的Telnet服务：</p>
 <h1 id="Telnet"><a href="#Telnet" class="headerlink" title="Telnet"></a>Telnet</h1><h3 id="什么是Telnet："><a href="#什么是Telnet：" class="headerlink" title="什么是Telnet："></a>什么是Telnet：</h3><p>Telnet是teletype network的缩写，是Internet上远程登录的一种程序，一种典型的客户机/服务器模型的服务。Telnet提供远程登录功能，使得用户在本地主机上运行Telnet客户端，就可登录到远端的Telnet服务器。在本地输入的命令可以在服务器上运行，服务器把结果返回到本地，如同直接在服务器控制台上操作。这样就可以在本地远程操作和控制服务器。</p>
 <h3 id="Telnet协议："><a href="#Telnet协议：" class="headerlink" title="Telnet协议："></a>Telnet协议：</h3><p>Telnet是位于OSI模型的第7层—应用层上的一种协议，是一个通过创建虚拟终端提供连接到远程主机终端仿真的TCP/IP协议。这一协议需要通过用户名和口令进行认证，是Internet远程登陆服务的标准协议。应用Telnet协议能够把本地用户所使用的计算机变成远程主机系统的一个终端。</p>
 <h3 id="开启Telnet："><a href="#开启Telnet：" class="headerlink" title="开启Telnet："></a>开启Telnet：</h3><p>控制面板一程序一打开或关闭windows功能一勾选“telnet服务器”和“telnet客户端”确定并安装即可。在CMD中输入Telnet可以验证是否配置成功<br><img src="/2019/04/06/20190406/2.png" alt></p>
@@ -450,11 +450,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
