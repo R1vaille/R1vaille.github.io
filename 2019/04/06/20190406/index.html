@@ -6,29 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.dollars.wang">
-  <title>Sublime Text3中C++编译运行环境搭建教程 | 炭烧酸奶不是碳酸饮料</title>
+  <title>Windows命令行方式访问QQ邮箱smtp服务器 | 炭烧酸奶不是碳酸饮料</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="近日企业春招笔试多如牛毛，笔者手上几个项目进度迟缓，想给自己找份暑期实习，于是开始刷剑指offer系列的题准备应对笔试。笔者学习数据结构时惯用的语言是C++，技术面试也喜欢问C++STL的使用，于是决定使用C++做完。   初步做的题尚未达到只有开IDE逐步运行调试才能写出来的难度，每做一道题不过十几分钟，每次都要开IDE建一个工程未免太过笨重，在一个文件里调试也不方便复习，试图尝试用之前写Pyt">
-<meta name="keywords" content="C++">
+  <meta name="description" content="SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。本文中将分享一些使用Telnet在命令行中对QQ邮箱的smtp服务器进行访问，执行登录、">
+<meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sublime Text3中C++编译运行环境搭建教程">
-<meta property="og:url" content="http://www.dollars.wang/2019/04/04/20190404/index.html">
+<meta property="og:title" content="Windows命令行方式访问QQ邮箱smtp服务器">
+<meta property="og:url" content="http://www.dollars.wang/2019/04/06/20190406/index.html">
 <meta property="og:site_name" content="炭烧酸奶不是碳酸饮料">
-<meta property="og:description" content="近日企业春招笔试多如牛毛，笔者手上几个项目进度迟缓，想给自己找份暑期实习，于是开始刷剑指offer系列的题准备应对笔试。笔者学习数据结构时惯用的语言是C++，技术面试也喜欢问C++STL的使用，于是决定使用C++做完。   初步做的题尚未达到只有开IDE逐步运行调试才能写出来的难度，每做一道题不过十几分钟，每次都要开IDE建一个工程未免太过笨重，在一个文件里调试也不方便复习，试图尝试用之前写Pyt">
+<meta property="og:description" content="SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。本文中将分享一些使用Telnet在命令行中对QQ邮箱的smtp服务器进行访问，执行登录、">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190404/image-1.png">
-<meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190404/image-2.png">
-<meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190404/image-3.png">
-<meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190404/image-4.png">
-<meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190404/image-5.png">
-<meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190404/image-6.png">
-<meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190404/image-7.png">
-<meta property="og:image" content="http://www.dollars.wang/2019/04/04/20190404/image-8.png">
-<meta property="og:updated_time" content="2019-04-04T17:01:35.512Z">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/1.jpg">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/2.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/3.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/4.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/5.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/6.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/7.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/8.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/06/20190406/9.png">
+<meta property="og:updated_time" content="2019-04-06T14:16:58.057Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sublime Text3中C++编译运行环境搭建教程">
-<meta name="twitter:description" content="近日企业春招笔试多如牛毛，笔者手上几个项目进度迟缓，想给自己找份暑期实习，于是开始刷剑指offer系列的题准备应对笔试。笔者学习数据结构时惯用的语言是C++，技术面试也喜欢问C++STL的使用，于是决定使用C++做完。   初步做的题尚未达到只有开IDE逐步运行调试才能写出来的难度，每做一道题不过十几分钟，每次都要开IDE建一个工程未免太过笨重，在一个文件里调试也不方便复习，试图尝试用之前写Pyt">
-<meta name="twitter:image" content="http://www.dollars.wang/2019/04/04/20190404/image-1.png">
+<meta name="twitter:title" content="Windows命令行方式访问QQ邮箱smtp服务器">
+<meta name="twitter:description" content="SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。本文中将分享一些使用Telnet在命令行中对QQ邮箱的smtp服务器进行访问，执行登录、">
+<meta name="twitter:image" content="http://www.dollars.wang/2019/04/06/20190406/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="炭烧酸奶不是碳酸饮料" type="application/atom+xml">
   
@@ -162,86 +163,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-20190404" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-20190406" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Sublime Text3中C++编译运行环境搭建教程
+      Windows命令行方式访问QQ邮箱smtp服务器
     </h1>
   
 
         
-        <a href="/2019/04/04/20190404/" class="archive-article-date">
-  	<time datetime="2019-04-04T14:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
+        <a href="/2019/04/06/20190406/" class="archive-article-date">
+  	<time datetime="2019-04-06T11:59:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>近日企业春招笔试多如牛毛，笔者手上几个项目进度迟缓，想给自己找份暑期实习，于是开始刷剑指offer系列的题准备应对笔试。笔者学习数据结构时惯用的语言是C++，技术面试也喜欢问C++STL的使用，于是决定使用C++做完。</p>
-<p>  初步做的题尚未达到只有开IDE逐步运行调试才能写出来的难度，每做一道题不过十几分钟，每次都要开IDE建一个工程未免太过笨重，在一个文件里调试也不方便复习，试图尝试用之前写Python时下的Sublime Text3来进行调试。在此分享一点经验，望看到这篇文章的萌新少走弯路。</p>
-<a id="more"></a>
-<h3 id="需要的工具："><a href="#需要的工具：" class="headerlink" title="需要的工具："></a>需要的工具：</h3><p>1.<strong>Sublime Text 3</strong> 下载链接：<a href="http://www.sublimetext.com/3" target="_blank" rel="noopener">http://www.sublimetext.com/3</a> 一款非常轻便好用的文本编辑器，支持Python\Java\C++等多种语言编辑调试</p>
-<p>2.<strong>MinGW</strong> 下载链接：<a href="https://osdn.net/projects/mingw/releases/" target="_blank" rel="noopener">https://osdn.net/projects/mingw/releases/</a> 由于Sublime是不自带C++编译器的，需要另外下一个g++，我这里选用的是MinGW里带的，如果已经下载CodeBlocks而且配置了环境变量的话也可以直接用里面的g++，不需要另外再下载。拖到页面下方下载这个<strong>mingw-get-setup.exe</strong>即可</p>
-<p><img src="/2019/04/04/20190404/image-1.png" alt></p>
-<p>下载好后点开来是这样的：</p>
-<p><img src="/2019/04/04/20190404/image-2.png" alt></p>
-<p>直接点Install然后配置一下路径，continue等安装好就行了。我第一次做这一步的时候报了两次错，没搞清楚原因，重新下载了一下就能用了</p>
-<p><img src="/2019/04/04/20190404/image-3.png" alt></p>
-<p>再continue会显示这个界面，由于我这台电脑之前已经通过MinGW安装过了g++，所以这里显示的是灰的，第一次配置的话，右键<strong>mingw32-gcc-g++-bin</strong>项，然后点Make for installation（应该也是唯一的选项），然后点左上角的Installation，选择Apply Changes，然后喝杯茶等一会（有梯子的同学可以不用等）</p>
-<p><img src="/2019/04/04/20190404/image-4.png" alt></p>
-<p>下一步就是配置环境变量了。此电脑（计算机）右键-> 高级系统设置-&gt;环境变量-&gt;系统变量-&gt;Path双击，在后面加上刚刚下载MinGW的bin文件夹路径。有些同学打开不是我这样的，就在一长串字符的后面加上<code>；E:\\MinGW\\bin</code>(分号加你自己的路径)。我之前用Latex的时候因为这个程序的bug把我环境变量清空了= =，大家如果要用Latex写论文的话一定要先备份环境变量，不然恢复起来很麻烦</p>
-<p><img src="/2019/04/04/20190404/image-5.png" alt></p>
-<p>配置完环境变量一定要记得把确定都点了啊，这样才能保证生效。在命令行中输入<strong>g++ -v</strong> 测试，如果有如下显示那就证明环境变量配置成功了</p>
-<p><img src="/2019/04/04/20190404/image-6.png" alt></p>
-<p>现在就可以对Sublime Text进行操作了。打开之后我们点击Tools-&gt;Build System-&gt;New Build System，然后把下面的代码复制进去，比如说保存文件名为cpp.sublime-build。<br>对代码含义感兴趣的同学可以看我后面给的两篇参考文章，以及这个链接：<a href="http://sublimetext.info/docs/en/reference/build_systems.html" target="_blank" rel="noopener">http://sublimetext.info/docs/en/reference/build_systems.html</a></p>
-<pre><code>{ 
-    &quot;cmd&quot;: [&quot;g++&quot;, &quot;${file}&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\${file_base_name}&quot;, &quot;&amp;&quot;, &quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\${file_base_name} &amp; echo. &amp; pause&quot;],
-    &quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;, &quot;working_dir&quot;: &quot;${file_path}&quot;,
-    &quot;selector&quot;: &quot;source.c, source.c++&quot;, &quot;shell&quot;: true,
-    &quot;encoding&quot;:&quot;cp936&quot;, 
-
-    &quot;variants&quot;:
-    [
-        {
-            &quot;name&quot; : &quot;Build Only&quot;,
-            &quot;cmd&quot;:[&quot;g++&quot;, &quot;${file}&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\${file_base_name}&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Run Only&quot;,
-            &quot;cmd&quot; : [&quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\${file_base_name} &amp; echo. &amp; pause&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Pipe Build and Run&quot;,
-            &quot;cmd&quot;:[&quot;g++&quot;, &quot;${file}&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\${file_base_name}&quot;,&quot;&amp;&quot;,&quot;${file_path}\\\\${file_base_name}&quot;, &quot;&lt;&quot;,&quot;${file_path}\\\\in&quot;,&quot;&gt;&quot;,&quot;${file_path}\\\\out&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Pipe Run Only&quot;,
-            &quot;cmd&quot; : [&quot;${file_base_name}&quot;, &quot;&lt;&quot;,&quot;in&quot;,&quot;&gt;&quot;,&quot;out&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Project Build &amp; Run&quot;,
-            &quot;cmd&quot; : [&quot;g++&quot;, &quot;${file_path}\\\\*.cpp&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\project&quot;, &quot;&amp;&quot;, &quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\project &amp; echo. &amp; pause&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Project Build Only&quot;,
-            &quot;cmd&quot; : [&quot;g++&quot;, &quot;${file_path}\\\\*.cpp&quot;, &quot;-std=c++11&quot;, &quot;-o&quot;, &quot;${file_path}\\\\project&quot;]
-        },
-        {
-            &quot;name&quot; : &quot;Project Run Only&quot;,
-            &quot;cmd&quot; : [&quot;start&quot;, &quot;cmd&quot;, &quot;/c&quot;, &quot;${file_path}\\\\project &amp; echo. &amp; pause&quot;]
-        }
-    ]
-</code></pre><p>然后就可以新建一个cpp文件测试一下啦。在Tools中选择Build System为刚刚设定的cpp，然后Tools-&gt;Build(快捷键Ctrl+B)，会弹出下列窗口让你选择；如果之前已经选择需要改编译需求的话，就点Build with(快捷键Ctrl+Shift+B)</p>
-<p><img src="/2019/04/04/20190404/image-7.png" alt></p>
-<p>这里我们一般使用的是Project Build&amp;Run，即编译执行，如果对其他选项的含义感兴趣可以看参考文章里的第一篇。执行Build后，可以看见之前cpp文件的路径下生成了一个Project.exe文件，并且可以运行起来了，编译速度还挺快~</p>
-<p><img src="/2019/04/04/20190404/image-8.png" alt></p>
-<p>到这里Sublime Text3的C++编译环境就完成了，可以开始刷题了兄弟萌</p>
-<p>参考文章：<br><a href="https://blog.csdn.net/a19990412/article/details/82658981" target="_blank" rel="noopener">https://blog.csdn.net/a19990412/article/details/82658981</a><br><a href="https://www.cnblogs.com/jacen789/p/7801977.html" target="_blank" rel="noopener">https://www.cnblogs.com/jacen789/p/7801977.html</a></p>
+        <p><strong>SMTP</strong>（Simple Mail Transfer Protocol）即简单邮件传输协议,是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件<br>时找到下一个目的地。<br>本文中将分享一些使用Telnet在命令行中对QQ邮箱的smtp服务器进行访问，执行登录、发送邮件等操作的经验。<br><img src="/2019/04/06/20190406/1.jpg" alt><br><a id="more"></a><br>在上一篇文章中，我使用了Telnet工具来检测服务器端口是否开放，在这篇文章中，我想先更详细地介绍一下我们使用的Telnet服务：</p>
+<p>#Telnet</p>
+<p>###什么是Telnet：<br>Telnet是teletype network的缩写，是Internet上远程登录的一种程序，一种典型的客户机/服务器模型的服务。Telnet提供远程登录功能，使得用户在本地主机上运行Telnet客户端，就可登录到远端的Telnet服务器。在本地输入的命令可以在服务器上运行，服务器把结果返回到本地，如同直接在服务器控制台上操作。这样就可以在本地远程操作和控制服务器。</p>
+<p>###Telnet协议：<br>Telnet是位于OSI模型的第7层—应用层上的一种协议，是一个通过创建虚拟终端提供连接到远程主机终端仿真的TCP/IP协议。这一协议需要通过用户名和口令进行认证，是Internet远程登陆服务的标准协议。应用Telnet协议能够把本地用户所使用的计算机变成远程主机系统的一个终端。</p>
+<p>###开启Telnet：<br>控制面板一程序一打开或关闭windows功能一勾选“telnet服务器”和“telnet客户端”确定并安装即可。在CMD中输入Telnet可以验证是否配置成功<br><img src="/2019/04/06/20190406/2.png" alt></p>
+<p>这只是准备工作的第一步。在配置好Telnet服务之后，我们还需要开启QQ邮箱的相关设置。登录邮箱后，我们通过设置-&gt;账户-&gt;POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务中，开启POP3/SMTP服务，或者IMAP/SMTP服务，这样就可以通过SMTP协议对邮箱进行访问和操作了。<br>在QQ邮箱的<a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=371" target="_blank" rel="noopener">这篇官方文档</a>中，还提供了一些支持POP3服务邮箱客户端的设置方法。<br>至于POP3和IMAP的区别，<a href="https://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=331" target="_blank" rel="noopener">这篇官方文档</a>中也有详细的介绍。简要地说，就是POP3是单向的，对于邮箱的操作只在客户端本地有效，不会影响到服务器；而IMAP是双向的，用户进行的邮件移动、标记等操作都会反馈到服务器上。<br>POP3和IMAP都是用于邮件获取的协议，我们关心的SMTP协议是用于邮件发送的协议，两者搭配使用实现文件的收发。<br><img src="/2019/04/06/20190406/3.png" alt><br>服务开启的时候会生成一串授权码，虽然窗口上文字说不用记，但最好还是要记一下，因为每次生成授权码都要发短信，会有点麻烦。</p>
+<p>接下来我们就正式开始访问QQ邮箱的smtp服务器了。启动CMD，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Telnet smtp.qq.com 587</span><br></pre></td></tr></table></figure></p>
+<p>这里的<strong>smtp.qq.com</strong>是QQ邮箱的smtp服务器地址，587是其开放的端口号（163邮箱则是smtp.163.com，端口号25）。在上述的第二篇官方文档中有说明QQ邮箱smtp服务器的端口号有465和587，但我用465测试的时候命令行窗口卡死了，只有587能测试成功。<br>成功连接后，我们输入下列代码来给smtp服务器打个招呼：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helo smtp</span><br></pre></td></tr></table></figure></p>
+<p>服务器正常情况下会返回输出<strong>250 smtp.qq.com</strong><br>注意，在连接上smtp服务器后，如果一段时间没有动作，服务器会自动断开和当前客户端的连接；而且在连接成功后的界面中尽量不要输错指令，因为退格在telnet的界面中是无效的，只能把光标前移，再输入会覆盖掉之前输入的文字，也不代表你提交的命令就是当前显示在屏幕上的那条；如果输入了错误的命令，也可能主动断开和服务器的连接。<br>然后我们请求登录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auth login</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/06/20190406/4.png" alt><br>可以看见服务器给我们反馈了一条消息：<strong>Must issue a STARTTLS command first</strong>，要求我们先输入一条命令启动TLS。<br>简单查阅了一下TLS协议相关的资料，TLS(Transport Layer Security)协议，由SSL(Secure Sockets Layer)协议发展而来，是一种安全协议，主要作用是加密。如果在和smtp服务器通信的过程中，我们输入的账号和密码信息如果未加密直接进行发送的话，会产生较大的账户安全隐患。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STARTTLS</span><br></pre></td></tr></table></figure></p>
+<p>输入这条命令后，服务器反馈启动结果，再输入<strong>auth login</strong>，服务器返回给我们一个奇怪的字符串。<br><img src="/2019/04/06/20190406/5.png" alt><br>这个字符串是服务器发送的用base-64加密的数据，用解码器解码后，我们可以查看到其原本面貌：<br><img src="/2019/04/06/20190406/6.png" alt><br>这时，我们需要提交的username也应该是用base-64加密过的，用刚刚的解码器反向对邮箱的账号进行编码，或者在Linux系统下用下列命令进行编码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -n &quot;username&quot; | base64		//当然username填你自己的邮箱地址</span><br></pre></td></tr></table></figure></p>
+<p>这里我填入自己的邮箱编码后的结果，按回车，服务器会继续返回一条加密过的意思是“password”的字符串，让我们输入加密过的密码。<strong>注意</strong>，这里的密码指的是之前开启服务的时候获取的<strong>授权码</strong>，而不是QQ密码！如果忘了的话也没关系，回到服务开启的页面重新获取一个就好了。<br><img src="/2019/04/06/20190406/7.png" alt><br>可以看见我们已经登录成功了，接下来就用命令行给我们的邮箱发一条邮件。首先我们输入命令来制定我们的发件和收件的地址：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mail from:&lt;jiyuxin0929@qq.com&gt;		//回车</span><br><span class="line">rcpt to: &lt;jiyuxin0929@foxmail.com&gt;	//回车</span><br></pre></td></tr></table></figure></p>
+<p>这里我指定的是自己的两个邮箱地址，接下来我们开始输入正文：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data		//回车，后面的内容都是正文</span><br><span class="line">from:R1vaille	//指定发件人名称，可不填</span><br><span class="line">to:Myself		//指定收信人名称，可不填</span><br><span class="line">subject:test email	//指定主题，可不填</span><br><span class="line">//空一行表示正文开始</span><br><span class="line">This is an email from cmd!	//邮件正文内容</span><br><span class="line">.	//以单独成行的小数点作为结尾，表示正文结束，此时按下回车，邮件发送</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/06/20190406/8.png" alt><br>这时显示邮件已经发送成功，我们进入我的收件箱查收：<br><img src="/2019/04/06/20190406/9.png" alt></p>
+<h2 id="我们刚刚发送的邮件已经可以查收到了，包括我们在data中设定的发件人、收信人以及主题等信息。"><a href="#我们刚刚发送的邮件已经可以查收到了，包括我们在data中设定的发件人、收信人以及主题等信息。" class="headerlink" title="我们刚刚发送的邮件已经可以查收到了，包括我们在data中设定的发件人、收信人以及主题等信息。"></a>我们刚刚发送的邮件已经可以查收到了，包括我们在data中设定的发件人、收信人以及主题等信息。</h2><p>码字不易，希望可以帮助到大家，若有不当之处欢迎指出，共同交流。</p>
+<p>参考文章：<br><a href="https://blog.csdn.net/qq_35644234/article/details/68961603" target="_blank" rel="noopener">SMTP协议介绍</a><br><a href="http://www.cnblogs.com/fanyong/p/3498670.html" target="_blank" rel="noopener">用命令行发邮件——让你更加了解smtp</a><br><a href="https://blog.csdn.net/chang_jinling/article/details/81098666" target="_blank" rel="noopener">CMD下利用命令行发送SMTP协议邮件</a><br><a href="https://baike.baidu.com/item/TLS/2979545?fr=aladdin" target="_blank" rel="noopener">TLS 与HTTPS</a></p>
 
       
 
@@ -276,7 +233,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
         		</li>
       		
 		</ul>
@@ -332,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.dollars.wang/2019/04/04/20190404/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.dollars.wang/2019/04/06/20190406/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,15 +303,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/04/20190405/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          FRP端口转发中frpc连接超时问题解决
-        
-      </div>
-    </a>
   
+    <a href="/2019/04/04/20190405/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FRP端口转发中frpc连接超时问题解决</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -379,7 +332,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#需要的工具："><span class="toc-number">1.</span> <span class="toc-text">需要的工具：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#我们刚刚发送的邮件已经可以查收到了，包括我们在data中设定的发件人、收信人以及主题等信息。"><span class="toc-number">1.</span> <span class="toc-text">我们刚刚发送的邮件已经可以查收到了，包括我们在data中设定的发件人、收信人以及主题等信息。</span></a></li></ol>
                     </div>
                 </span>
             </div>
