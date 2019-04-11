@@ -6,15 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.dollars.wang">
-  <title>Archives | 炭烧酸奶不是碳酸饮料</title>
+  <title>C++中获取字符串方式cin,getline,getchar,cin.get区别的探究 | 炭烧酸奶不是碳酸饮料</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="炭烧酸奶不是碳酸饮料">
-<meta property="og:url" content="http://www.dollars.wang/archives/index.html">
+  <meta name="description" content="这周投了几份简历，做了点C++算法题，发现有些题目在获取输入字符串的时候就把我给难住了。大一学C++的时候就觉得字符串是个难点，室友参加完华为的笔试也反馈说，有些字符串的题目本来很简单，但因为对获取方式不了解，浪费了很多时间。在查找资料的过程中，我看到了很多种不同方法来获取字符串，比如cin,getchar等，但用起来的时候，不知道该如何选择更适应题目要求的方式。所以打算做个深入的测试和研究，来搞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++中获取字符串方式cin,getline,getchar,cin.get区别的探究">
+<meta property="og:url" content="http://www.dollars.wang/2019/04/11/20190411/index.html">
 <meta property="og:site_name" content="炭烧酸奶不是碳酸饮料">
+<meta property="og:description" content="这周投了几份简历，做了点C++算法题，发现有些题目在获取输入字符串的时候就把我给难住了。大一学C++的时候就觉得字符串是个难点，室友参加完华为的笔试也反馈说，有些字符串的题目本来很简单，但因为对获取方式不了解，浪费了很多时间。在查找资料的过程中，我看到了很多种不同方法来获取字符串，比如cin,getchar等，但用起来的时候，不知道该如何选择更适应题目要求的方式。所以打算做个深入的测试和研究，来搞">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/1.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/2.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/3.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/4.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/5.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/6.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/7.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/8.png">
+<meta property="og:image" content="http://www.dollars.wang/2019/04/11/20190411/9.png">
+<meta property="og:updated_time" content="2019-04-11T19:43:00.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="炭烧酸奶不是碳酸饮料">
+<meta name="twitter:title" content="C++中获取字符串方式cin,getline,getchar,cin.get区别的探究">
+<meta name="twitter:description" content="这周投了几份简历，做了点C++算法题，发现有些题目在获取输入字符串的时候就把我给难住了。大一学C++的时候就觉得字符串是个难点，室友参加完华为的笔试也反馈说，有些字符串的题目本来很简单，但因为对获取方式不了解，浪费了很多时间。在查找资料的过程中，我看到了很多种不同方法来获取字符串，比如cin,getchar等，但用起来的时候，不知道该如何选择更适应题目要求的方式。所以打算做个深入的测试和研究，来搞">
+<meta name="twitter:image" content="http://www.dollars.wang/2019/04/11/20190411/1.png">
   
     <link rel="alternative" href="/atom.xml" title="炭烧酸奶不是碳酸饮料" type="application/atom+xml">
   
@@ -148,163 +162,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-20190411" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      C++中获取字符串方式cin,getline,getchar,cin.get区别的探究
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/11/20190411/" class="archive-article-date">
+
+        
+        <a href="/2019/04/11/20190411/" class="archive-article-date">
   	<time datetime="2019-04-11T14:02:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/11/20190411/">C++中获取字符串方式cin,getline,getchar,cin.get区别的探究</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这周投了几份简历，做了点C++算法题，发现有些题目在获取输入字符串的时候就把我给难住了。大一学C++的时候就觉得字符串是个难点，室友参加完华为的笔试也反馈说，有些字符串的题目本来很简单，但因为对获取方式不了解，浪费了很多时间。<br>在查找资料的过程中，我看到了很多种不同方法来获取字符串，比如cin,getchar等，但用起来的时候，不知道该如何选择更适应题目要求的方式。所以打算做个深入的测试和研究，来搞懂这几种方式的区别。</p>
+<h1 id="cin-gt-gt"><a href="#cin-gt-gt" class="headerlink" title="cin&gt;&gt;"></a>cin&gt;&gt;</h1><p>先考虑最简单的一种形式，使用C++自带的标准输入输出流cin。</p>
+<h2 id="cin简介"><a href="#cin简介" class="headerlink" title="cin简介"></a>cin简介</h2><p>cin是C++编程语言中的标准输入流对象，即istream类的对象。cin主要用于从标准输入读取数据，这里的标准输入，指的是终端的键盘。此外，cout是ostream流的对象，cerr是标准错误输出流的对象，也是ostream类的对象。这里的标准输出指的是终端键盘，标准错误输出指的是终端的屏幕。<br>当我们从键盘输入字符串的时候，需要敲一下回车键才能够将这个字符串送入到cin的标准输入缓冲区中，敲入的这个回车键\r会被转换为一个换行符\n，这个换行符\n也会被存储在cin的缓冲区中,并且被当成一个字符来计算。</p>
+<h2 id="cin在char-中的使用"><a href="#cin在char-中的使用" class="headerlink" title="cin在char[]中的使用"></a>cin在char[]中的使用</h2><p>下面我们来看一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">static char input[50];</span><br><span class="line">   char c;</span><br><span class="line">   int i = 0;</span><br><span class="line">   cin&gt;&gt;c;</span><br><span class="line">   while(c!=&apos;\n&apos;)&#123;</span><br><span class="line">       cout&lt;&lt;&quot;i = &quot;&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">       input[i++]=c;</span><br><span class="line">       cin&gt;&gt;c;</span><br><span class="line">   &#125;</span><br><span class="line">   cout&lt;&lt;input;</span><br></pre></td></tr></table></figure></p>
+<p>按照这段代码的逻辑，当输入回车即换行符时，应该把我们输入的字符串送到cin的缓冲区中，cin对象逐个字符读取并存入char型数组中，当读取到换行符时退出循环；但实际执行过程中，发现无论按多少次回车都不会结束输入，程序陷入了一个死循环。如果我们在字符串间穿插一些空格，发现仍然能正常存入。</p>
+<p><img src="/2019/04/11/20190411/1.png" alt></p>
+<p>这里就引出了一个重要性质：当cin&gt;&gt;从缓冲区中读取数据时，若缓冲区中第一个字符是空格、tab或换行这些分隔符时，会将其忽略并清除，继续读取下一个字符，若缓冲区为空，则继续等待。但是如果读取成功，字符后面的分隔符是残留在缓冲区的，则不做处理。 但是如果还想识别到换行符或者空格怎么办？可以使用noskipws流控制：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cin&gt;&gt;noskipws&gt;&gt;c;</span><br></pre></td></tr></table></figure></p>
+<p>将上述代码按这种方法修改后，就可以识别出输入的空格和换行符了。这个案例是把空格也存进了input[]中，所以下标一直存到了8：</p>
+<p><img src="/2019/04/11/20190411/2.png" alt></p>
+<p>这种方法适用于读取一整行单个未知数目的字符，可以是连续的，也可以用空格分隔开。读取连续字符串的时候，我更喜欢用string类来完成。</p>
+<p>##cin在string中的使用<br>用cin和string类的搭配读取单个连续字符串非常简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line">cin&gt;&gt;str;</span><br></pre></td></tr></table></figure></p>
+<p>这样就能轻松读取一个连续的字符串。但这种方法的弊端在于，读取到空格等分隔符为止，也就是说只能读取单个连续字符串。那用noskipws流可以控制吗？我做了个测试，答案是否定的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line">   cin&gt;&gt;noskipws&gt;&gt;str;</span><br><span class="line">   cout&lt;&lt;str.length()&lt;&lt;endl;</span><br><span class="line">   cout&lt;&lt;str;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/11/20190411/3.png" alt><br>连字符串的长度也只是5。string类的存储是在堆上的，不是简单的每次读取一个字符并存入数组中，所以也不能用相同的方法来控制。<br>在这个过程中我还发现了个很有趣的现象，sizeof(str)的结果无论str多长，都是由编译器决定的固定值。原理在<a href="https://blog.csdn.net/jackzhang_123/article/details/79133571" target="_blank" rel="noopener">这篇文章</a>中。<br>但如果我们要从屏幕读取带空格的完整的一句话怎么办？是不是不能存入一个string里了？这时就可以使用getline函数</p>
+<h1 id="getline"><a href="#getline" class="headerlink" title="getline()"></a>getline()</h1><h2 id="getline简介"><a href="#getline简介" class="headerlink" title="getline简介"></a>getline简介</h2><p>顾名思义，getline是个用于读取一行字符串的函数。在C++中，其实有两个getline函数：<br>第一种：在头文件<istream>中，是iostream类的成员函数；<br>第二种：在头文件<string>中，是普通函数。</string></istream></p>
+<h2 id="istream中的getline"><a href="#istream中的getline" class="headerlink" title="istream中的getline"></a>istream中的getline</h2><p>istream中的getline有两种重载形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">istream&amp; getline (char* s, streamsize n );</span><br><span class="line">istream&amp; getline (char* s, streamsize n, char delim );</span><br></pre></td></tr></table></figure></p>
+<p>这里的getline只能以char*作为参数，作用是：从istream中读取至多n个字符(包含结束标记符’\0’)保存在s对应的数组中。即使还没读够n个字符，如果遇到delim或字数达到限制，则读取终止，delim都不会被保存进s对应的数组中。例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">static char input[50];</span><br><span class="line">char c;</span><br><span class="line">cin.getline(input, 50, &apos;y&apos;);</span><br><span class="line">cout&lt;&lt;input;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/11/20190411/4.png" alt></p>
+<p>可以看见空格被输入进来了，并以字符’y’作为终结。<br>这种方法有一个弊端：无法知道读取了多少位字符，也就是说不知道已经读取字符串的长度，除非使用string类。</p>
+<h2 id="string中的getline"><a href="#string中的getline" class="headerlink" title="string中的getline"></a>string中的getline</h2><p>string中的getline有四种重载形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">istream&amp; getline (istream&amp;  is, string&amp; str, char delim);</span><br><span class="line">istream&amp; getline (istream&amp;&amp; is, string&amp; str, char delim);</span><br><span class="line">istream&amp; getline (istream&amp;  is, string&amp; str);</span><br><span class="line">istream&amp; getline (istream&amp;&amp; is, string&amp; str);</span><br></pre></td></tr></table></figure></p>
+<p>看到这一堆引用我开始昏了，但实际用法上和第一种还是类似的，只不过需要以一个istream类的对象(cin)和一个string型字符串作为参数，输入的字符串保存在string对象中。例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line">getline(cin,str);</span><br><span class="line">cout&lt;&lt;str.length()&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;str;</span><br></pre></td></tr></table></figure>
+<p>还是出现和上面一个例子相同的结果，好处在于空格也被存入了字符串中，并且通过调用string类的length()函数，字符串的长度也可以获知了，更加方便操作。</p>
+<h2 id="getline作为判定条件"><a href="#getline作为判定条件" class="headerlink" title="getline作为判定条件"></a>getline作为判定条件</h2><p>但我还不满足！如果要读取多行完整的句子怎么办？应该用什么作为判定条件？从上面的函数原型可以看出，getline返回的是一个istream类对象，如果将其作为判定条件来控制一个循环，则可以满足多行字符串的输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string str[50];</span><br><span class="line">   int i=0;</span><br><span class="line">   while(getline(cin,str[i]))</span><br><span class="line">   &#123;</span><br><span class="line">       cout&lt;&lt;str[i++]; </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/11/20190411/5.png" alt></p>
+<p>这里按回车是不会结束程序的，推出循环的标志叫EOF。EOF是C语言中为了区分有效数据和输入结束符的而提出的，其输入由系统锁定，Windows下是Ctrl+Z，linux/unix下是Ctrl+D。在这里把EOF输入缓冲区后，getline的返回值才会变成NULL，函数退出循环。<br>一般的算法题如果要读取多行字符串，一般会给出数据的行数，否则根本无法找到输入的终点。</p>
+<h1 id="getchar"><a href="#getchar" class="headerlink" title="getchar"></a>getchar</h1><h2 id="getchar简介"><a href="#getchar简介" class="headerlink" title="getchar简介"></a>getchar简介</h2><p>getchar是C语言中的函数，C++中也包含了该函数。getchar()函数的作用是从标准的输入stdin中读取字符，包括回车、空格等分隔符。也就是说，getchar函数以字符为单位对输入的数据进行读取。例如读取一组以特殊字符为结尾的数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">static char input[50];</span><br><span class="line">  char c;</span><br><span class="line">  int i=0;</span><br><span class="line">  while((c=getchar())!=&apos;#&apos;)&#123;  //以&apos;#&apos;作为结尾的一组字符串，千万不要漏掉括号！</span><br><span class="line">      input[i++]=c;</span><br><span class="line">  &#125;</span><br><span class="line">  cout&lt;&lt;input;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/11/20190411/6.png" alt></p>
+<p>这种方法比较适用于出现了特殊分隔符的数据读取。由于C++的string类不像JAVA，不带按分隔符截取的函数，所以在读取的时候这种方法使用的比较多一点。再举个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">static char input[50];</span><br><span class="line">   char c;</span><br><span class="line">   int i=0;</span><br><span class="line">   input[i++]=getchar();</span><br><span class="line">   while(getchar()==&apos;,&apos;)&#123;  //以&apos;,&apos;分隔的一组字符</span><br><span class="line">      input[i++]=getchar();</span><br><span class="line">   &#125;</span><br><span class="line">   cout&lt;&lt;input;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/11/20190411/7.png" alt></p>
+<p>用这种方法交替每次读取一个字符，可以实现分割，但仅局限于单个字符。<br>getchar毕竟还是C语言的函数，C++能用也只是因为它兼容C，所以在其他场景里尽量还是不要用getchar</p>
+<h1 id="cin-get"><a href="#cin-get" class="headerlink" title="cin.get"></a>cin.get</h1><p>这个看起来很简单，和之前用的cin.getline格式有点相似，用法其实也相似，也就是下面这几种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char c = cin.get();</span><br><span class="line">cin.get(c);</span><br><span class="line">cin.get(char* s, streamsize n );</span><br><span class="line">cin.get(char* s, streamsize n, char delim );</span><br></pre></td></tr></table></figure></p>
+<p>其功能好像是综合了getchar和getline之长，但二者有无区别？我们先看下面这个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char ch;    </span><br><span class="line">static char input[50];</span><br><span class="line">   cout &lt;&lt; &quot;Enter a string: &quot;;</span><br><span class="line">   cin.get(input, 50);</span><br><span class="line">   cout &lt;&lt; &quot;Enter a character: &quot;;</span><br><span class="line">   ch = cin.get();   </span><br><span class="line">   cout&lt;&lt;(int)ch&lt;&lt;endl;</span><br><span class="line">   cout &lt;&lt; &quot;Thank You!\n&quot;;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/04/11/20190411/8.png" alt></p>
+<p>结果很奇怪，还没等我输入字符，程序就已经退出了，这是为什么？之前提过，我们按下回车时会向输入缓冲区增加一个换行符’\n’，cin在读取时是以空格等分隔符作为终结的！如果把读取到的字符ch用强制类型转换成整型输出其ASCII码，会发现其值为10，正是换行符的值，说明cin并没有把缓冲区的换行符读出来，而是把它留在了缓冲区中，再用cin.get()函数读取的时候，直接读取到了这个换行符，所以也无需用户的输入了。不仅如此，包括使用一些类似于读取终结符的机制，都会让终结符之后的字符保留在缓冲区中未读取，后面再调用读取缓冲区的函数时，是从之前的缓冲队列里先读取的，而不是说先响应用户的输入。<br>言归正传，getline和cin.get的区别在于，cin.get遇到终止字符停止读取后，指针不向后移动；cin.getline遇到终止字符结束后，指针移到终止字符后。就比如以我们刚才那个例子来说，用cin.get读取了以换行符结尾的一行字符串，此时指针指着的还是换行符所在的位置；再用cin.get读一个字符，就把那个换行符给读出来了。如果我们把第一个读取字符串的方式换成getline的话，则可以正常输入字符：<br><img src="/2019/04/11/20190411/9.png" alt></p>
+<h2 id="熬夜死抠这些好像是没啥意义嗷，但感觉自己对于标准输入缓冲区的了解又深入了一些，希望以后做题能更得心应手，少浪费时间在思考这个上面吧"><a href="#熬夜死抠这些好像是没啥意义嗷，但感觉自己对于标准输入缓冲区的了解又深入了一些，希望以后做题能更得心应手，少浪费时间在思考这个上面吧" class="headerlink" title="熬夜死抠这些好像是没啥意义嗷，但感觉自己对于标准输入缓冲区的了解又深入了一些，希望以后做题能更得心应手，少浪费时间在思考这个上面吧~"></a>熬夜死抠这些好像是没啥意义嗷，但感觉自己对于标准输入缓冲区的了解又深入了一些，希望以后做题能更得心应手，少浪费时间在思考这个上面吧~</h2><p>参考文章：<br><a href="https://www.cnblogs.com/xiaofeiIDO/p/8574042.html" target="_blank" rel="noopener">C++getline函数用法</a><br><a href="https://blog.csdn.net/hou09tian/article/details/80741890" target="_blank" rel="noopener">C++getchar函数用法</a><br><a href="https://blog.csdn.net/bravedence/article/details/77282039" target="_blank" rel="noopener">C++中cin详细用法</a></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>暂时还没穷到恰不起饭<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.dollars.wang/2019/04/11/20190411/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/06/20190406/" class="archive-article-date">
-  	<time datetime="2019-04-06T11:59:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/06/20190406/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Windows命令行方式访问QQ邮箱smtp服务器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/06/20190406/">Windows命令行方式访问QQ邮箱smtp服务器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cin-gt-gt"><span class="toc-number">1.</span> <span class="toc-text">cin&gt;&gt;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cin简介"><span class="toc-number">1.1.</span> <span class="toc-text">cin简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cin在char-中的使用"><span class="toc-number">1.2.</span> <span class="toc-text">cin在char[]中的使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#getline"><span class="toc-number">2.</span> <span class="toc-text">getline()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#getline简介"><span class="toc-number">2.1.</span> <span class="toc-text">getline简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#istream中的getline"><span class="toc-number">2.2.</span> <span class="toc-text">istream中的getline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#string中的getline"><span class="toc-number">2.3.</span> <span class="toc-text">string中的getline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getline作为判定条件"><span class="toc-number">2.4.</span> <span class="toc-text">getline作为判定条件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#getchar"><span class="toc-number">3.</span> <span class="toc-text">getchar</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#getchar简介"><span class="toc-number">3.1.</span> <span class="toc-text">getchar简介</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cin-get"><span class="toc-number">4.</span> <span class="toc-text">cin.get</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#熬夜死抠这些好像是没啥意义嗷，但感觉自己对于标准输入缓冲区的了解又深入了一些，希望以后做题能更得心应手，少浪费时间在思考这个上面吧"><span class="toc-number">4.1.</span> <span class="toc-text">熬夜死抠这些好像是没啥意义嗷，但感觉自己对于标准输入缓冲区的了解又深入了一些，希望以后做题能更得心应手，少浪费时间在思考这个上面吧~</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/04/20190405/" class="archive-article-date">
-  	<time datetime="2019-04-04T15:47:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/04/20190405/">FRP端口转发中frpc连接超时问题解决</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/04/20190404/" class="archive-article-date">
-  	<time datetime="2019-04-04T14:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/04/20190404/">Sublime Text3中C++编译运行环境搭建教程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -327,8 +381,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
